@@ -1,0 +1,18 @@
+/* style.css */
+@keyframes slidein {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .animated-box {
+    animation: slidein 1s ease-out;
+    background-color: lightblue;
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+  }
+  

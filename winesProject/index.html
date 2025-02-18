@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #fae1df;
+  height: 80vh;  
+}
+
+.newyear {
+  position: relative; 
+}
+
+.glass1 {
+  position: absolute;
+  animation: drop 2s linear;
+}
+
+.glass {
+  position: absolute;
+  width: 50px;
+  height: 110px;
+  border: 5px solid #333;
+  border-radius: 0 0 50px 50px;
+  box-shadow: inset 0 -5px 0 rgba(255,255,255,0.4);
+  top: -10px;
+  z-index: 30;
+  animation: drop 2s linear;
+}
+
+.glass:before {
+  content: "";
+  position: absolute;
+  background-color: rgba(255,255,255,0.4);
+  width: 7px;
+  height: 70px;
+  left: 7px;
+  top: 15px;
+  border-radius: 10px;
+}
+
+.holder {
+  position: absolute;
+  width: 5px;
+  height: 70px;
+  background-color: #333;
+  top: 115px;
+  left: 24px;
+}
+
+.holder:before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 10px;
+  background-color: #333;
+  top: 70px;
+  left: -22px;
+  border-radius: 30px 30px 0 0;
+}
+
+.drink {
+  position: absolute;
+  overflow: hidden; 
+  width: 48px;
+  height: 180px;
+  border-radius: 0 0 50px 50px;
+  top: -78px;
+  left: 6px;
+}
+
+.liquid {
+  position: absolute;
+  background-color: #fdc500;
+  width: 80px;
+  height: 50px;
+  left: -5px;
+  top: 210px;  
+  transition: all 2s ease;
+}
+
+.champagne {
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background-color: #fdc500;
+  top: -350px;
+  left: 20px;
+  z-index: 5;
+  animation: champagne 3s linear;
+  animation-delay: 2s;
+}
+
+#bubbles {
+  position: absolute;
+  top: 50px;
+}
+
+#bubble {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #F3F1E7;
+  border-radius: 50%;
+  opacity: 0;
+  top: 100px;
+  left: 10px;
+  z-index: 10;
+}
+
+.bubble1 { animation: bubble1 1.2s ease-out 5s infinite; }
+.bubble3 { animation: bubble1 1s ease-out 4.2s infinite; }
+.bubble2 { animation: bubble2 1.2s ease-out 4.7s infinite; }
+.bubble4 { animation: bubble2 1.3s ease-out 3.7s infinite; }
+
+.line {
+  position: absolute;
+  background-color: #333;
+  height: 5px;
+  width: 250px;
+  top: 190px;
+  left: -97px;
+}
+
+.text {
+  position: absolute;
+  top: 200px;
+  left: -93px;
+  display: inline-block;
+  white-space: nowrap;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 40px;  
+}
+
+.number {
+  position: absolute;
+  top: 240px;
+  left: -10px;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 40px;  
+}
+
+@keyframes drop {
+  0% { transform: translateY(-470px); opacity: 0; }
+  5% { opacity: 1; }
+  50% { transform: translateY(0px); opacity: 1; }
+  65% { transform: translateY(-15px); opacity: 1; }
+  75% { transform: translateY(-18px); opacity: 1; }
+  100% { transform: translateY(0px); opacity: 1; }
+}
+
+@keyframes champagne {
+  0% { height: 0px; opacity: 1; transform: scaleX(1); }
+  10% { height: 0px; opacity: 1; transform: scaleX(0.95); }
+  30% { height: 450px; opacity: 1; transform: scaleX(0.9); }
+  80% { height: 450px; opacity: 1; transform: scaleX(0.85); }
+  100% { height: 450px; opacity: 0; transform: scaleX(0.8); }
+}
+
+@keyframes bubble1 {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.3);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-95px) translateX(10px) scale(0.5);
+    opacity: 0.5;
+  }
+}
+
+@keyframes bubble2 {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.4);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-105px) translateX(-10px) scale(0.6);
+    opacity: 0.6;
+  }
+}
+</style>
+</head>
+<body>
+<div class="newyear">
+  <div class="glass1">
+    <div class="glass">
+      <div class="holder"></div>
+    </div>
+    <div class="drink">
+      <div class="liquid"></div>
+      <div id="bubbles">
+        <div id="bubble" class="bubble1"></div>
+        <div id="bubble" class="bubble2"></div>
+        <div id="bubble" class="bubble3"></div>
+        <div id="bubble" class="bubble4"></div>
+      </div>
+    </div>
+    <div class="champagne"></div>
+  </div>
+  <div class="line"></div>
+  <div class="text">{{ myname }}</div>
+  <div class="number">2025</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    const liquid = document.querySelector('.liquid');
+    liquid.style.height = '90px';
+    liquid.style.top = '110px';
+  }, 2000);
+});
+</script>
+</body>
+</html>

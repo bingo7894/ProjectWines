@@ -1,0 +1,43 @@
+<!-- HTML, CSS, JavaScript -->
+<html>
+<head>
+    <style>
+        @keyframes slidein {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .animated-box {
+            animation: slidein 1s ease-out;
+            background-color: lightblue;
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        .button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: lightgreen;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-box"></div>
+    <button class="button" onclick="alert('Button clicked!')">Click Me</button>
+
+    <script>
+        // JavaScript Function
+        function customFunction() {
+            alert("Hello from JavaScript!");
+        }
+    </script>
+</body>
+</html>
